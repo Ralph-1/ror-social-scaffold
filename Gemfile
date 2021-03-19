@@ -47,7 +47,8 @@ group :development, :test do
 end
 
 group :test do
-gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
 end
 
 group :development do
