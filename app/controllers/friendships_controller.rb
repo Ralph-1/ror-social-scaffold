@@ -1,4 +1,6 @@
 class FriendshipsController < ApplicationController
+  include ApplicationHelper
+
   def index
     @friendship = current_user.Friendship.all
   end
