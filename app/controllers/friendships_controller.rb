@@ -4,12 +4,14 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    @friendship = current_user.friendships.new(friend_id: params[:user_id], confirmed: false)
+    @user=User.find(params[:user_id])
+    @user=User.find(params[:user_id])
+    @friendship= current_user.friendship.new
+    @friendship.friend_id= @user.id
+    @friendship.requester_id =current_user.id
+    @frienship.save
+    @friendship.user_id =current_user.id
+    @friendship.save
 
-    if @friendship.save
-      redirect_to users_path, notice: 'Invitation sent!'
-    else
-      redirect_to users_path, alert: 'Something went wrong, please try again!'
-    end
-  end
+end
 end
