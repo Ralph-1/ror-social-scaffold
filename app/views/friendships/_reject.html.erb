@@ -1,6 +1,6 @@
-<% form_with model: @friendship, url: friend_path, method: method , local: true do |form| %>
+<%= form_with model: @friendship, url: friend_path, method: method , local: true do |form| %>
 
-<% form.hidden_field :user_id, value: user.id %>
+<%= form.hidden_field :user_id, value: user.id %>
  
 <%= form.submit action_text %>
 
