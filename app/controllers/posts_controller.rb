@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   private
 
   def timeline_posts
-    @timeline_posts = Post.where('user_id IN (?)', current_user.friends)
+    @timeline_posts ||= current_user.friends_posts.includes(:user)
     @my_posts = current_user.posts.includes(:user)
   end
 
