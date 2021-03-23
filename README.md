@@ -1,6 +1,7 @@
 # Scaffold for social media app with Ruby on Rails
 
 > This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+<img src="screenshot.png" alt="screenshot">
 
 ## Built With
 
@@ -15,10 +16,17 @@ TBA
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
+1. Run `git clone`.
+2. Run `cd ror-social-scaffold`.
+3. Run `bundle install` to install gems.
+4. Run `rails db:create`.
+5. Run `rails db:migrate`.
+6. Run `rails server` or `rails s` to start a server
+6. Open `http://localhost:3000/` prefered browser to run.
 
 ### Prerequisites
 
-Ruby: 2.6.3
+Ruby: 2.7.2
 Rails: 5.2.3
 Postgres: >=9.5
 
@@ -70,8 +78,9 @@ Open `http://localhost:3000/` in your browser.
 TBA
 
 ## Authors
-
-TBA
+- Github: [Ralph-1 ](https://github.com/Ralph-1)
+- Twitter: [@NotRalph0](https://twitter.com/NotRalph0)
+- Linkedin: [Lidya-linkedin-link](https://www.linkedin.com/in/ralph-oburu/)
 
 ## 🤝 Contributing
 
