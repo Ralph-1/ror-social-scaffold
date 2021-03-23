@@ -16,12 +16,17 @@ module ApplicationHelper
     end
   end
 
-
   def confirm_friend(user)
     friendship = inverse_friendships.find { |inverse_friendship| inverse_friendship.user == user }
 
     friendship.confirmed = true
 
     friendship.save
+  end
+
+  def shared_posts(user)
+    friendship = inverse_friendships.find { |inverse_friendship| inverse_friendship.user == user }
+
+    timeline_posts if friendship.confirmed == true
   end
 end
