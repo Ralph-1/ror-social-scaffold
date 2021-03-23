@@ -1,7 +1,7 @@
 # Scaffold for social media app with Ruby on Rails
 
 > This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
-<img src="screenshot.png" alt="screenshot">
+![screenshot](Screenshot.png)
 
 ## Built With
 
@@ -22,7 +22,7 @@ To get a local copy up and running follow these simple example steps.
 4. Run `rails db:create`.
 5. Run `rails db:migrate`.
 6. Run `rails server` or `rails s` to start a server
-6. Open `http://localhost:3000/` prefered browser to run.
+6. Open `http://localhost:3000/` preferred browser to run.
 
 ### Prerequisites
 
