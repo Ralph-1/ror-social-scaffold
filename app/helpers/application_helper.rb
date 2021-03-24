@@ -31,17 +31,17 @@ module ApplicationHelper
   end
 
   def singlepage
-    unless @user == current_user
-      if current_user.friend?(@user) 
-        render 'friendships/reject', user: @user, action_text: 'Unfriend', method: 'delete'
-      elsif current_user.pending_friends.include?(@user)
-        render 'friendships/reject', user: @user, action_text: 'Cancel request', method: 'delete'
-      elsif current_user.friend_requests.include?(@user)
-        render 'friendships/accept_friend', user: @user,action_text: 'Accept friend', method: 'put'
-        render 'friendships/reject', user: @user, action_text: 'Reject', method: 'delete'
-      else
-        render 'friendships/add_friend', user: @user, method: 'post', action_text: 'Add firend'
+    return if @user == current_user
+
+    if current_user.friend?(@user)
+      render 'friendships/reject', user: @user, action_text: 'Unfriend', method: 'delete'
+    elsif current_user.pending_friends.include?(@user)
+      render 'friendships/reject', user: @user, action_text: 'Cancel request', method: 'delete'
+    elsif current_user.friend_requests.include?(@user)
+      render 'friendships/accept_friend', user: @user, action_text: 'Accept friend', method: 'put'
+      render 'friendships/reject', user: @user, action_text: 'Reject', method: 'delete'
+    else
+      render 'friendships/add_friend', user: @user, method: 'post', action_text: 'Add firend'
     end
   end
-end
 end
