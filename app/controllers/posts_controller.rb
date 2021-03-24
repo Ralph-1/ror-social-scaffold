@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   def timeline_posts
     @timeline_posts ||= Post.all.ordered_by_most_recent.includes(:user)
+    @my_posts = current_user.posts.includes(:user)
   end
 
   def post_params
