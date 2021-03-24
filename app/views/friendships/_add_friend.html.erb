@@ -1,6 +1,6 @@
 <%= form_with model: @friendships, url: friend_path, method: method do |form| %>
 <%= form.hidden_field :requester_id, value: user.id %>
  
-<%= form.submit action_text%>
+<%= form.submit action_text, class: 'form-group text-wrap'%>
 
 <% end %>
