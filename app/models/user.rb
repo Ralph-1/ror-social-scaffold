@@ -14,6 +14,13 @@ class User < ApplicationRecord
   has_many :friends, -> { where(friendships: { confirmed: 'true' }) }, through: :friendships, dependent: :destroy
   has_many :friends_posts, through: :friends, source: :posts, dependent: :destroy
 
+  has_many :confirmed_friendships, -> { where confirmed: true }, class_name: 'Friendship'
+  has_many :friends, through: :confirmed_friendships
+
+  def friends_and_own_posts
+    Post.where(user: (friends.to_a << self))
+  end
+
   def friends
     friends_array = friendships.map do |friendship|
       friendship.friend if friendship.confirmed
