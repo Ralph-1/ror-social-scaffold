@@ -10,5 +10,4 @@ module UserHelper
   def mutual_friends_list(user)
     user != current_user ? @mutual_friends : []
   end
-
 end
