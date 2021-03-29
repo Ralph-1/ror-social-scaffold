@@ -10,7 +10,7 @@
 
 ## Live Demo
 
-TBA
+[Live demo](https://railsfriendships.herokuapp.com/)
 
 
 ## Getting Started
