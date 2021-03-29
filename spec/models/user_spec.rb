@@ -11,8 +11,6 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:friendships) }
 
     it { is_expected.to have_many(:inverse_friendships).class_name('Friendship') }
-
-    it { is_expected.to have_many(:friends_posts).through(:friends).source(:posts) }
   end
 
   describe 'validations' do
