@@ -1,5 +1,8 @@
 <section class="user-section">
+  <%= render 'mutual_friends', user: @user %>
+  <br/><br/>
   <h2><%= "Name: #{@user.name}" %></h2>
+  <% singlepage %>
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">

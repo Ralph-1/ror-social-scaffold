@@ -15,4 +15,49 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
+
+  def confirm_friend(user)
+    friendship = inverse_friendships.find { |inverse_friendship| inverse_friendship.user == user }
+
+    friendship.confirmed = true
+
+    friendship.save
+  end
+
+  def shared_posts(user)
+    friendship = inverse_friendships.find { |inverse_friendship| inverse_friendship.user == user }
+
+    timeline_posts if friendship.confirmed == true
+  end
+
+  def singlepage
+    return if @user == current_user
+
+    if current_user.friend?(@user)
+      render 'friendships/reject', user: @user, action_text: 'Unfriend', method: 'delete'
+    elsif current_user.pending_friends.include?(@user)
+      render 'friendships/reject', user: @user, action_text: 'Cancel request', method: 'delete'
+    elsif current_user.friend_requests.include?(@user)
+      render 'friendships/accept_friend', user: @user, action_text: 'Accept friend', method: 'put'
+      render 'friendships/reject', user: @user, action_text: 'Reject', method: 'delete'
+    else
+      render 'friendships/add_friend', user: @user, method: 'post', action_text: 'Add firend'
+    end
+  end
+
+  def sign_in_and_sign_out
+    if current_user
+      link_to 'Sign out', destroy_user_session_path, method: :delete
+    else
+      link_to 'Sign in', user_session_path
+    end
+  end
+
+  def notice_message
+    notice if notice.present?
+  end
+
+  def alert_message
+    alert if alert.present?
+  end
 end

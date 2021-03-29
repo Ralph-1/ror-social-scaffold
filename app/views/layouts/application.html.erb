@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
@@ -18,22 +19,18 @@
           <%= menu_link_to 'All users', users_path %>
         </div>
       </div>
-      <% if current_user %>
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign in', user_session_path %>
-      <% end %>
+   <%= sign_in_and_sign_out %>
     </nav>
-    <% if notice.present? %>
+
       <div class="notice">
-        <p> <%= notice %> </p>
+        <%= notice_message %>
       </div>
-    <% end %>
-    <% if alert.present? %>
+
+
       <div class="alert">
-        <p> <%= alert %> </p>
+        <%= alert_message %>
       </div>
-    <% end %>
+
     <main class="main">
       <%= yield %>
     </main>
