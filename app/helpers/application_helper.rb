@@ -44,4 +44,20 @@ module ApplicationHelper
       render 'friendships/add_friend', user: @user, method: 'post', action_text: 'Add firend'
     end
   end
+
+  def sign_in_and_sign_out
+    if current_user
+      link_to 'Sign out', destroy_user_session_path, method: :delete
+    else
+      link_to 'Sign in', user_session_path
+    end
+  end
+
+  def notice_message
+    notice if notice.present?
+  end
+
+  def alert_message
+    alert if alert.present?
+  end
 end
