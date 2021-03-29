@@ -16,7 +16,7 @@
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
-1. Run `git clone`.
+1. Run `git clone https://github.com/Ralph-1/ror-social-scaffold.git`.
 2. Run `cd ror-social-scaffold`.
 3. Run `bundle install` to install gems.
 4. Run `rails db:create`.
